@@ -27,7 +27,12 @@ public class CheckGeetestStatusTask extends TimerTask {
             String key = PropertiesUtils.get("redis.check.geetest.status.key", "REDIS_CHECK_GEETEST_STATUS_KEY");
             int exTime = Integer.parseInt(PropertiesUtils.get("redis.check.geetest.status.extime", "86400"));
             String result = RedisPoolUtils.setex(key, geetest_status, exTime);
-            System.out.println(String.format("gtlog: CheckGeetestStatusTask: 保存值到redis中, value=%s, result=%s.", geetest_status, result));
+            System.out.println(String.format("gtlog: CheckGeetestStatusTask: 正确获取到状态值, 保存值到redis中, value=%s, result=%s.", geetest_status, result));
+        } else {
+            String key = PropertiesUtils.get("redis.check.geetest.status.key", "REDIS_CHECK_GEETEST_STATUS_KEY");
+            int exTime = Integer.parseInt(PropertiesUtils.get("redis.check.geetest.status.extime", "86400"));
+            String result = RedisPoolUtils.setex(key, "fail", exTime);
+            System.out.println(String.format("gtlog: CheckGeetestStatusTask: 未获取到状态值, 保存默认值fail到redis中, result=%s.", result));
         }
     }
 
