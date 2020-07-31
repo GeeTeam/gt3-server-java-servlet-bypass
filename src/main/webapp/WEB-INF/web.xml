@@ -5,6 +5,10 @@
 <web-app id="gt3-server-java-spring-bypass">
     <display-name>gt3-server-java-spring-bypass</display-name>
 
+    <listener>
+        <listener-class>com.geetest.demo.listener.CheckGeetestStatusListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>FirstRegisterServlet</servlet-name>
         <display-name>FirstRegisterServlet</display-name>
@@ -15,19 +19,6 @@
         <display-name>SecondValidateServlet</display-name>
         <servlet-class>com.geetest.demo.controller.SecondValidateServlet</servlet-class>
     </servlet>
-    <!--<servlet>
-        <servlet-name>QuartzInitializer</servlet-name>
-        <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
-        <init-param>
-            <param-name>shutdown-on-unload</param-name>
-            <param-value>true</param-value>
-        </init-param>
-        <init-param>
-            <param-name>config-file</param-name>
-            <param-value>quartz.properties</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>-->
 
     <servlet-mapping>
         <servlet-name>FirstRegisterServlet</servlet-name>
@@ -38,9 +29,6 @@
         <url-pattern>/validate</url-pattern>
     </servlet-mapping>
 
-    <listener>
-        <listener-class>com.geetest.demo.listener.CheckGeetestStatusListener</listener-class>
-    </listener>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
