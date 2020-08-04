@@ -94,6 +94,19 @@ pom.xml|maven依赖管理配置文件|
 ### 运行demo
 tomcat部署启动项目，在浏览器中访问`http://localhost:8080`即可看到demo界面。
 
+### 模拟宕机模式
+> 方式一 配置文件中将id改成错误账号
+
+`config.properties`文件中将`geetest.id`的值改成`1234567890`
+
+> 方式二 配置文件中将极验云监听接口改成错误链接
+
+`config.properties`文件中将`check.geetest.status.url`的值改成`http://www.google.com`
+
+> 方式三 修改服务器hosts，将极验云监听接口域名绑定错误ip
+
+修改服务器hosts配置文件：`127.0.0.1 bypass.geetest.com`
+
 ## 发布日志
 
 ### tag：20200731
