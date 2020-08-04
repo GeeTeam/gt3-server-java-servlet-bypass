@@ -62,7 +62,9 @@ redis数据库|3.0.6
 ## **部署流程**
 
 ### **下载demo**
-请联系极验客户
+```
+git clone git@github.com:GeeTeam/gt3-server-java-servlet-bypass.git 
+```
 
 ### 修改项目配置，修改参数
 > 修改项目配置
